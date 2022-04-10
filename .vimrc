@@ -7,7 +7,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'vimsence/vimsence'
 Plug 'itchyny/lightline.vim'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
+
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf=0
+let g:ycm_python_binary_path='/usr/bin/python3'
 
 " Emmet config
 let g:user_emmet_mode='n'
