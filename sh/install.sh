@@ -4,9 +4,8 @@ cp .vimrc $HOME/ -r
 cp .zshrc $HOME/ -r
 cp .xinitrc $HOME/ -r
 
-yay -S clang
-yay -S ccls
-yay -S flameshot
-yay -S volumeicon
-yay -S vimb
-yay -S nitrogen
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+
+paru -S dunst polkit-gnome-authentication-agent mpd youtube-dl neofetch ncdu alacritty pcmanfm ranger exa base-devel mpv neovim clang ccls firefox flameshot volumeicon vimb nitrogen

@@ -1,7 +1,6 @@
 #!/bin/sh
 
-xrandr --output DP-1 --rate 144 --mode 1920x1080 --right-of HDMI-1
-xrandr --output HDMI-1 --rate 144 --mode 1920x1080
+xrandr --output eDP-1 --rate 60 --mode 1366x768
 
 killall dwmblocks ; dwmblocks &
 killall nitrogen ; nitrogen --restore &
