@@ -1,0 +1,77 @@
+# ~/.config/alacritty/alacritty.yml
+
+# Colors
+colors:
+  # Default colors
+  primary:
+    background: '0x1E1E1E'
+    foreground: '0xFFFFFF'
+
+  # Normal colors
+  normal:
+    black: '0x000000'
+    red: '0xE06C75'
+    green: '0x98C379'
+    yellow: '0xD19A66'
+    blue: '0x61AFEF'
+    magenta: '0xC678DD'
+    cyan: '0x56B6C2'
+    white: '0xEBDBB2'
+
+  # Bright colors
+  bright:
+    black: '0x5C6370'
+    red: '0xFF5370'
+    green: '0xC3E88D'
+    yellow: '0xFFCB6B'
+    blue: '0x82AAFF'
+    magenta: '0xC792EA'
+    cyan: '0x89DDFF'
+    white: '0xF8F8F2'
+
+# Font configuration
+font:
+  size: 12.0
+  normal:
+    family: 'Hack'
+  bold:
+    family: 'Hack'
+  italic:
+    family: 'Hack'
+  bold_italic:
+    family: 'Hack'
+
+# Window settings
+window:
+  padding:
+    x: 8
+    y: 8
+
+# Allow bold text
+allow_bold: true
+
+# Visual bell configuration
+visual_bell:
+  type: 'Fringe'
+
+# Cursor configuration
+cursor:
+  style: 'Block'
+  unfocused_hollow: true
+
+# Key bindings
+key_bindings:
+  - { key: PageUp, mods: Control, action: ScrollPageUp }
+  - { key: PageDown, mods: Control, action: ScrollPageDown }
+  - { key: Up, mods: Control, action: ScrollUp }
+  - { key: Down, mods: Control, action: ScrollDown }
+
+# Mouse bindings
+mouse_bindings:
+  - { event: WheelUp, mods: Control, action: ScrollUp }
+  - { event: WheelDown, mods: Control, action: ScrollDown }
+
+# Disable bold text for certain applications
+# (e.g., when using Neovim with italic text)
+# This prevents issues with italic and bold text at the same time.
+draw_bold_text_with_bright_colors: false

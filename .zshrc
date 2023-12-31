@@ -1,6 +1,6 @@
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 autoload -U colors && colors
-PS1="%{$fg[cyan]%}%~ %{$fg[blue]%}>%b "
+PS1="%F{magenta}%n%f@%F{magenta}%m%f %{$fg[cyan]%}%~ %{$fg[blue]%}>%b "
 
 # Tab Completion
 autoload -U compinit
@@ -20,11 +20,10 @@ setopt nobeep
 setopt histignorealldups
 setopt autocd
 
-export  _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR=nvim
 export TERMINAL=alacritty
-export BROWSER=firefox
-export FILEMAN=pcmanfm
+export BROWSER=brave
+export FILEMAN=thunar
 
 
 #os 
@@ -34,8 +33,8 @@ alias ll='exa -l --color=always --icons --all '
 alias ls='exa -l --color=always --icons --no-permissions'
 alias mf="mkf"
 alias md="mkdir"
-alias sus="paru -Syyu ; poweroff"
-alias rbt="sudo reboot"
+alias sus="pall --noconfirm ; poweroff"
+alias rbt="pall --noconfirm ; sudo reboot"
 alias :q="exit"
 
 
@@ -43,7 +42,7 @@ alias :q="exit"
 alias prs="paru -S"
 alias pss="paru -Ss"
 alias prr="paru -Rscn"
-
+alias pall="paru -Syu"
 
 
 # git 
@@ -62,13 +61,11 @@ alias ytmp3="youtube-dl -x --audio-format mp3"
 alias ytopus="youtube-dl -x --audio-format opus"
 alias ytbest="youtube-dl --format bestvideo+bestaudio"
 
-
 #misc
-alias nf="neofetch"
+alias nf="fastfetch --logo-color-1 magenta --logo-color-2 magenta --color magenta"
 alias v="$EDITOR"
 alias vim="$EDITOR"
 alias mi="make install"
-
 
 function sys() {
 	case $1 in
@@ -92,9 +89,9 @@ ex() {
  		     *.gz)        gunzip $1    ;;
  		     *.tar)       tar xf $1    ;;
  		     *.tbz2)      tar xjf $1   ;;
-      	             *.tgz)       tar xzf $1   ;;
+			 *.tgz)       tar xzf $1   ;;
 		     *.zip)       unzip $1     ;;
-    		     *.Z)         uncompress $1;;
+			 *.Z)         uncompress $1;;
   		     *.7z)        7z x $1      ;;
 		     *.deb)       ar x $1      ;;
 		     *.tar.xz)    tar xf $1    ;;
@@ -107,6 +104,9 @@ ex() {
 }
 command_not_found_handler () {
 	echo "NYAAAA, NO SUCH COMMAND!!"
-	mpv ~/dev/git/systembackup/na.mp3 > /dev/null 2>&1 &
+	mpv ~/dev/git/dotfiles/na.mp3 > /dev/null 2>&1 &
 
 }
+export PATH=$PATH:/home/erizo/.spicetify
+echo "Visit my website https://erizo.cc , I think it's really cool!!\n" | lolcat
+ls
