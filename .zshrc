@@ -1,15 +1,23 @@
+plugins=(fzf-tab)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 autoload -U colors && colors
-PS1="%{$fg[cyan]%}%~ %{$fg[blue]%}>%b "
+PS1="%F{magenta}%n%f@%F{magenta}%m%f %{$fg[cyan]%}%~ %{$fg[blue]%}>%b "
 
-# Tab Completion
-autoload -U compinit
-zstyle ':completion:*' menu select 
-zstyle ':completion:*' completer _complete _correct _approximate
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-colors
+# Default Tab Completion
+# zstyle ':completion:*' menu select 
+# zstyle ':completion:*' completer _complete _correct _approximate
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
 _comp_options+=(globdots) 
+autoload -U compinit
 compinit
+# fzf completion
+source ~/.zsh/plugins/fzf-tab/fzf-tab.zsh	
+zstyle ':fzf-tab:*' fzf-flags --preview-window=right:60%
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always $realpath'
+zstyle ':fzf-tab:complete:less:*' fzf-preview 'less $realpath'
+colors
 
 setopt correct
 setopt extendedglob
@@ -20,11 +28,10 @@ setopt nobeep
 setopt histignorealldups
 setopt autocd
 
-export  _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR=nvim
 export TERMINAL=alacritty
-export BROWSER=firefox
-export FILEMAN=pcmanfm
+export BROWSER=brave
+export FILEMAN=thunar
 
 
 #os 
@@ -34,16 +41,17 @@ alias ll='exa -l --color=always --icons --all '
 alias ls='exa -l --color=always --icons --no-permissions'
 alias mf="mkf"
 alias md="mkdir"
-alias sus="paru -Syyu ; poweroff"
-alias rbt="sudo reboot"
+alias sus="pall ; poweroff"
+alias rbt="pall ; sudo reboot"
 alias :q="exit"
+alias fucking="sudo"
 
 
 #paru
 alias prs="paru -S"
 alias pss="paru -Ss"
 alias prr="paru -Rscn"
-
+alias pall="paru -Syu --noconfirm"
 
 
 # git 
@@ -56,19 +64,23 @@ alias gp="git push"
 alias gi="git init"
 alias gc="git clone"
 
-# downloading from yt
-alias ytdl="youtube-dl --format mp4"
-alias ytmp3="youtube-dl -x --audio-format mp3"
-alias ytopus="youtube-dl -x --audio-format opus"
-alias ytbest="youtube-dl --format bestvideo+bestaudio"
-
-
+# downloading from web
+webdl() {
+		case $1 in
+		     mp3) yt-dlp -x --format bestaudio --audio-format mp3 --add-metadata -o $2 $3; touch $2.* ;;
+		     opus) yt-dlp -x --audio-format opus --add-metadata -o $2 $3; touch $2.*;;
+		     best) yt-dlp --format bestvideo+bestaudio --add-metadata  -o $2 $3; touch $2.*;;
+		     *) echo "Usage: webdl <mp3|opus|best> <name> <link>"        ;;
+    esac
+}
 #misc
-alias nf="neofetch"
+
+alias vk="QT_QPA_PLATFORM="" /usr/lib/vktablet/vktablet &"
+alias nf="fastfetch --logo-color-1 magenta --logo-color-2 magenta --color magenta"
+alias venfix='sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"'
 alias v="$EDITOR"
 alias vim="$EDITOR"
 alias mi="make install"
-
 
 function sys() {
 	case $1 in
@@ -92,9 +104,9 @@ ex() {
  		     *.gz)        gunzip $1    ;;
  		     *.tar)       tar xf $1    ;;
  		     *.tbz2)      tar xjf $1   ;;
-      	             *.tgz)       tar xzf $1   ;;
+			 *.tgz)       tar xzf $1   ;;
 		     *.zip)       unzip $1     ;;
-    		     *.Z)         uncompress $1;;
+			 *.Z)         uncompress $1;;
   		     *.7z)        7z x $1      ;;
 		     *.deb)       ar x $1      ;;
 		     *.tar.xz)    tar xf $1    ;;
@@ -106,7 +118,11 @@ ex() {
   fi
 }
 command_not_found_handler () {
-	echo "NYAAAA, NO SUCH COMMAND!!"
-	mpv ~/dev/git/systembackup/na.mp3 > /dev/null 2>&1 &
+	echo "\e[1;31mNYAAAA, NO SUCH COMMAND!!\n"
+	mpv ~/dev/git/dotfiles/na.mp3 > /dev/null 2>&1 &
+	# kitty +kitten icat --align=left ~/dev/git/dotfiles/neco-arc.gif
 
 }
+export PATH=$PATH:~/sh/
+echo "Visit my website https://erizo.cc , I think it's really cool!!\n" | lolcat
+ls

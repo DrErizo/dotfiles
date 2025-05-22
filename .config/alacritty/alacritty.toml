@@ -1,0 +1,76 @@
+[window]
+opacity = 0.85
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.bright]
+black = "0x5C6370"
+blue = "0x82AAFF"
+cyan = "0x89DDFF"
+green = "0xC3E88D"
+magenta = "0xC792EA"
+red = "0xFF5370"
+white = "0xF8F8F2"
+yellow = "0xFFCB6B"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x61AFEF"
+cyan = "0x56B6C2"
+green = "0x98C379"
+magenta = "0xC678DD"
+red = "0xE06C75"
+white = "0xEBDBB2"
+yellow = "0xD19A66"
+
+[colors.primary]
+background = "0x1E1E1E"
+foreground = "0xFFFFFF"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[font]
+size = 13.0
+
+[font.bold]
+[font.bold_italic]
+[font.italic]
+[font.normal]
+family = "CozetteVector"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "Up"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "Down"
+mods = "Control"
+
+[[mouse.bindings]]
+action = "ScrollPageUp"
+mouse = "Forward"
+mods = "Control"
+
+[[mouse.bindings]]
+action = "ScrollPageDown"
+mouse = "Back"
+mods = "Control"
+
+[window.padding]
+x = 8
+y = 8
+

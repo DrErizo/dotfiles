@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=DWM
+Comment=Suckless Dynamic Window Manager
+Exec=/home/erizo/sh/autostart.sh
+Type=XSession
+

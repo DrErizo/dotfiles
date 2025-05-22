@@ -1,0 +1,11 @@
+
+2025/02/05 (20:34:39) | ===> btop++ v.1.4.0
+2025/02/05 (20:34:39) | INFO: Logger set to INFO
+2025/02/05 (20:34:39) | INFO: Logger set to DEBUG
+2025/02/05 (20:34:40) | INFO: Logger set to INFO
+
+2025/03/17 (22:28:18) | ===> btop++ v.1.4.0
+2025/03/17 (22:28:18) | ERROR: Exception during Config::unlock() : unordered_map::at
+
+2025/03/19 (00:15:44) | ===> btop++ v.1.4.0
+2025/03/19 (00:15:44) | ERROR: Exception during Config::unlock() : unordered_map::at
