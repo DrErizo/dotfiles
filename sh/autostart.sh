@@ -1,14 +1,5 @@
 #!/bin/bash
 
-killall dwm         
-killall slstatus    
-killall picom       
-killall volumeicon  
-killall dunst       
-killall pipewire    
-killall flameshot   
-
-dwm &
 slstatus &
 picom &
 volumeicon &
