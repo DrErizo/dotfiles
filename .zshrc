@@ -1,6 +1,6 @@
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 autoload -U colors && colors
-PS1="%F{magenta}%n%f@%F{magenta}%m%f %{$fg[cyan]%}%~ %{$fg[blue]%}>%b "
+PS1="%F{magenta}%n%f@%F{magenta}%m%f %{$fg[cyan]%}%~ %{$fg[blue]%}><>%b "
 
 # Tab Completion
 autoload -U compinit
